@@ -45,7 +45,10 @@ cdc_marketing:
 
 
 elementary:
+  target: "{{ env_var('DBT_TARGET', 'dev') }}"
   outputs:
+    dev:
+      <<: *dev_service_account
     production:
       <<: *production_service_account
       catalog:

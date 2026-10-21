@@ -1,0 +1,68 @@
+2026-10-20 20:52:42 — INFO — Running with edr=0.22.0
+2026-10-20 20:52:54 — INFO — Installing packages for edr internal dbt package...
+2026-10-20 20:52:54 — INFO — Running dbt command --log-format json deps --project-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project --profiles-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing
+2026-10-20 20:53:46 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project --profiles-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing
+2026-10-20 20:55:04 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing']' is 270
+[31;20m2026-10-20 20:55:04 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:55:04 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project --profiles-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing
+2026-10-20 20:55:19 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing']' is 518
+2026-10-20 20:55:19 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project --profiles-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing
+2026-10-20 20:55:37 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing']' is 464
+2026-10-20 20:55:37 — INFO — Elementary's database and schema: 'bronze_production.cdc_staging'
+2026-10-20 20:55:37 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/dbt_project --profiles-dir /mnt/c/Users/judit/Documents/codes/cdc_modelling/cdc_marketing
+[31;20m2026-10-20 20:56:00 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_production`.`cdc_staging`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_production`.`cdc_staging`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22", "level": "error", "invocationId": "c14a14a4-659b-4d1a-880d-de6974237f9b", "pid": 57275, "thread": "MainThread", "ts": "2026-10-20T19:55:59.053095Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_production`.`cdc_staging`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_production`.`cdc_staging`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+        dbt_runner=self.dbt_runner,
+    ...<2 lines>...
+        disable_passed_test_metrics=disable_passed_test_metrics,
+    )
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        days_back=days_back,
+        ^^^^^^^^^^^^^^^^^^^^
+        invocations_per_test=invocations_per_test,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_passed_test_metrics=disable_passed_test_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        days_back=days_back,
+        ^^^^^^^^^^^^^^^^^^^^
+        invocations_per_test=invocations_per_test,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_passed_test_metrics=disable_passed_test_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+        macro_name="elementary_cli.get_test_results",
+    ...<4 lines>...
+        ),
+    )
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 178, in run_operation
+    result = self._run_command(
+        command_args=command_args,
+    ...<3 lines>...
+        log_output=log_output,
+    )
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 115, in _run_command
+    result = self._inner_run_command(
+        dbt_command_args,
+    ...<3 lines>...
+        log_format=log_format,
+    )
+  File "/mnt/c/Users/judit/Documents/codes/cdc_modelling/.venv/lib/python3.13/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 54, in _inner_run_command
+    raise DbtCommandError(
+    ...<3 lines>...
+    )
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_production`.`cdc_staging`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_production`.`cdc_staging`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22", "level": "error", "invocationId": "c14a14a4-659b-4d1a-880d-de6974237f9b", "pid": 57275, "thread": "MainThread", "ts": "2026-10-20T19:55:59.053095Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_production`.`cdc_staging`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_production`.`cdc_staging`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22"}}

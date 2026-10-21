@@ -1,2 +1,3 @@
-# cdc_modelling
-This is a repo for the dbt (data build tool) class
+# Case Study: Marketing Data Platform with Databricks & dbt
+
+## Coming soon
